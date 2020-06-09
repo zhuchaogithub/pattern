@@ -2,7 +2,6 @@ package com.zxc.pattern.factory.simplefactory;
 
 import com.zxc.pattern.factory.DevelopTask;
 import com.zxc.pattern.factory.Itask;
-import com.zxc.pattern.factory.simplefactory.TaskFactory;
 
 /**
  * @author zxc

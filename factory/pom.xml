@@ -9,11 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.zxc</groupId>
-    <artifactId>pattern</artifactId>
+    <artifactId>factory</artifactId>
     <version>1.0.0</version>
-    <packaging>pom</packaging>
-    <name>pattern</name>
-    <description>Pattern project for Spring Boot</description>
+    <name>factory</name>
+    <description>factory project for Spring Boot</description>
 
     <properties>
         <java.version>1.8</java.version>
@@ -37,10 +36,6 @@
             </exclusions>
         </dependency>
     </dependencies>
-
-    <modules>
-        <module>factory</module>
-    </modules>
 
     <build>
         <plugins>

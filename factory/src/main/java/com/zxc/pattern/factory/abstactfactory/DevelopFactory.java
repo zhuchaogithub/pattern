@@ -1,4 +1,4 @@
-package com.zxc.factory.abstactfactory;
+package com.zxc.pattern.factory.abstactfactory;
 
 import com.zxc.pattern.factory.DevelopTask;
 import com.zxc.pattern.factory.Itask;

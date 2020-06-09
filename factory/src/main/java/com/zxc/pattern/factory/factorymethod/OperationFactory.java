@@ -1,6 +1,5 @@
 package com.zxc.pattern.factory.factorymethod;
 
-import com.zxc.pattern.factory.DevelopTask;
 import com.zxc.pattern.factory.Itask;
 import com.zxc.pattern.factory.OperationTask;
 
