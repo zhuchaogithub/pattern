@@ -40,6 +40,7 @@
 
     <modules>
         <module>factory</module>
+        <module>singleton</module>
     </modules>
 
     <build>
