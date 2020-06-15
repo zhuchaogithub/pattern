@@ -17,7 +17,7 @@ public class SeriableSingleton implements Serializable {
     public static SeriableSingleton getInstance() {
         return INSTANCE;
     }
-
+   //重写readResolve方法 是为了覆盖反序列化出来的对象
     private Object readResolve() {
         return INSTANCE;
     }
