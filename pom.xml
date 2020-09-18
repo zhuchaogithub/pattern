@@ -41,6 +41,9 @@
     <modules>
         <module>factory</module>
         <module>singleton</module>
+        <module>proxy</module>
+        <module>prototype</module>
+        <module>study</module>
     </modules>
 
     <build>

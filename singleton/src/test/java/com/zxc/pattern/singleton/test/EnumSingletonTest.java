@@ -56,6 +56,7 @@ public class EnumSingletonTest {
             EnumSingleton enumSingleton = (EnumSingleton) c.newInstance("1212", 111);
             System.out.println(enumSingleton);
 
+            //从jDK层面就为枚举不被序列化和发射破坏来保驾护航
         } catch (Exception e) {
             e.printStackTrace();
         }

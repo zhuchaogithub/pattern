@@ -31,7 +31,7 @@ class tt{
         try {
             Class<?> clazz = LazyInnerClassSingleton.class;
             Constructor c = clazz.getDeclaredConstructor(null);
-            c.setAccessible(true);
+            c.setAccessible(true); //授权（可以获取私有方法）
             Object o1 = c.newInstance();
 
             Object o2 = LazyInnerClassSingleton.getInstance();

@@ -20,7 +20,7 @@ public class ContainerSinglerton {
             if (!ioc.containsKey(classnanme)) {
                 Object obj = null;
                 try {
-                    obj = Class.forName(classnanme);
+                    obj = Class.forName(classnanme).newInstance();
                     ioc.put(classnanme, obj);
                 } catch (Exception e) {
                     e.printStackTrace();
