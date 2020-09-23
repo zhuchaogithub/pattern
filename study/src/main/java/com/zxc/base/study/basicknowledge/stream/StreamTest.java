@@ -124,4 +124,15 @@ public class StreamTest {
 
 
     }
+
+    public static void main(String[] args) {
+        fun(1);
+    }
+    public static void fun(int i){
+        if (i < 100){
+            System.out.println(i);
+            fun(i + 1);
+        }
+        System.out.println(i);
+    }
 }
