@@ -1,4 +1,4 @@
-package com.zxc.base.study.basicknowledge;
+package com.zxc.base.study.basicknowledge.string;
 
 import java.util.Date;
 import java.util.UUID;
@@ -7,7 +7,7 @@ import java.util.UUID;
  * @author zxc
  * @date 2020/9/24 10:09
  */
-public class StringTest {
+public class StringAddTest {
     /**
      *String+, String.Concat, String.Format, StringBuilder
      * 前三个在100个左右字符串差不多， String.concat会获取稍微好一点点的性能提高， String.format使用起来更方便，StringBuilder适合更多更长的字符串拼接
