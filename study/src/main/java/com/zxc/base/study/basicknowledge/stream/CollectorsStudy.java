@@ -1,13 +1,13 @@
 package com.zxc.base.study.basicknowledge.stream;
 
+import com.google.common.collect.ImmutableList;
 import org.junit.Test;
 
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import static java.util.stream.Collectors.toList;
-import static java.util.stream.Collectors.toSet;
+import static java.util.stream.Collectors.*;
 
 /**
  * @author zxc
@@ -54,5 +54,70 @@ public class CollectorsStudy {
         for(Map.Entry<String, Integer> entry : collect4.entrySet()) {
             System.out.print("Key =" + entry.getKey() + ",value=" + entry.getValue() + "\t\t"); //Key =dd,value=2		Key =bb,value=2		Key =a,value=1		Key =ccc,value=3
         }
+        System.out.println();
+//toMap甚至不判断值是否相等，如果key重复，立刻抛出IllegalStateException异常。当key冲突时，我们应该使用toMap的另一个重载方法：
+        List<String> givenList1 = Arrays.asList("a","a", "bb", "ccc", "dd");
+//        Map<String, Integer> collect5 = givenList1.stream()
+//                .collect(Collectors.toMap(Function.identity(), String::length));  //java.lang.IllegalStateException: Duplicate key 1
+        Map<String, Integer> collect6 = givenList1.stream()
+                .collect(Collectors.toMap(Function.identity(), String::length, (item, identicalItem) -> item));
+        for(Map.Entry<String, Integer> entry : collect6.entrySet()) {
+            System.out.print("Key =" + entry.getKey() + ",value=" + entry.getValue() + "\t\t"); //Key =dd,value=2		Key =bb,value=2		Key =a,value=1		Key =ccc,value=3
+        }
+        System.out.println();
+
+        //Collectors.collectingAndThen()  是一个特殊收集器，其可以收集完成后再结果上执行另外动作
+        ImmutableList<String> collect7 = givenList.stream().collect(Collectors.collectingAndThen(toList(), ImmutableList::copyOf));
+        System.out.println("collect7: " + collect7);  //collect7: [a, bb, ccc, dd]
+
+        //Collectors.joining(): 收集器可以用于连接字符串流Stream中的元素
+        String collect8 = givenList.stream().collect(joining());
+        System.out.println(collect8); //abbcccdd
+        System.out.println(givenList.stream().collect(joining(" "))); //a bb ccc dd
+        System.out.println(givenList.stream().collect(joining(" ", "PRE-", "-POST"))); //PRE-a bb ccc dd-POST
+
+    }
+
+    @Test
+    public void testDifferenceSet() {
+        Aa aa = new Aa();
+        List<String> set3 = new ArrayList<>();
+        set3.add("a");
+        set3.add("b");
+        set3.add("c");
+        set3.add("d");
+        aa.setAaaa(set3);
+
+        List<String> set1 = new ArrayList<>();
+        List<String> set2 = new ArrayList<>();
+
+        set1.add("a");
+        set1.add("b");
+        set1.add("c");
+//        set1.add("d");
+
+        set2.add("c");
+        set2.add("d");
+        set2.add("e");
+        set2.add("f");
+//
+//        boolean b = set1.removeAll(set2);
+//        System.out.println("差集是 " + set1); //差集是 [a, b]
+//        System.out.println("差集是 " + set1.isEmpty()); //差集是 [a, b]
+//        System.out.println(b);
+        boolean all = aa.getAaaa().removeAll(set1);
+        System.out.println(all);
+        System.out.println(aa.getAaaa().isEmpty());
+    }
+}
+class Aa {
+    private List<String> aaaa;
+
+    public List<String> getAaaa() {
+        return aaaa;
+    }
+
+    public void setAaaa(List<String> aaaa) {
+        this.aaaa = aaaa;
     }
 }
