@@ -61,14 +61,21 @@ public class OptionalStduy {
         System.out.println(integer.get());
 
         //orElse()方法: 如果包装对象值非空，返回包装对象值，否则返回入参other的值（默认值）
-        String unkown = Optional.ofNullable(student).map(e -> e.getGender()).orElse("unkown");
+        String unkown = Optional.ofNullable(student).map(e -> e.getGender()).orElse(getDefaultValue());
         System.out.println(unkown);
-
+        System.out.println("---以上为orElse调用,以下为orElseGet调用---");
         //orElseGet()方法: 入参为一个Supplier对象，用Supplier对象的get()方法的返回值作为默认值
-        Optional.ofNullable(student).map(u -> u.getGender()).orElseGet(() -> "Unkown");
+        String s1 = Optional.ofNullable(student).map(u -> u.getGender()).orElseGet(() -> getDefaultValue());
+        System.out.println(s1);
 
         //orElseThrow()方法: 入参是Supplier对象，只不过orElseThrow()的Supplier对象必须返回一个Throwable异常，并在orElseThrow()中将异常抛出
         //orElseThrow()方法适用于包装对象值为空时需要抛出特定异常的场景
-        Optional.ofNullable(student).map(u -> u.getGender()).orElseThrow(() -> new RuntimeException("Unkown"));
+        String unkown1 = Optional.ofNullable(student).map(u -> u.getGender()).orElseThrow(() -> new RuntimeException("Unkown"));
+        System.out.println(unkown1);
+    }
+
+    public String getDefaultValue(){  //远程方法调用
+        System.out.println("我被调用了!");
+        return "我是默认值";
     }
 }
