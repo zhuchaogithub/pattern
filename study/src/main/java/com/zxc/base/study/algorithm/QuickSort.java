@@ -21,7 +21,7 @@ public class QuickSort {
             // 找寻基准数据的正确索引
             int index = getIndex(arr, low, high);
             // 进行迭代对index之前和之后的数组进行相同的操作使整个数组变成有序
-            //quickSort(arr, 0, index - 1); 之前的版本，这种姿势有很大的性能问题，谢谢大家的建议
+            //quickSort(arr, 0, index - 1); 之前的版本，这种姿势有很大的性能问题，
             quickSort(arr, low, index - 1);
             quickSort(arr, index + 1, high);
         }
